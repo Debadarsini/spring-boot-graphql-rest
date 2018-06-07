@@ -1,0 +1,8 @@
+spring:
+      application:
+               name: graphql-spring-boot
+server:
+      port: 9000
+      address: 0.0.0.0
+      
+logging.level.graphql-java: DEBUG

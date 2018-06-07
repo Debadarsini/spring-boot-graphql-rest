@@ -1,0 +1,57 @@
+type Query {
+    property(unit_uuid: String!): Property
+    propertyByExample(propertyQuery: PropertyQuery):  [Property]!
+}
+
+type Destination { 
+  destinationId: String
+  destination_name: String
+  gross_booking_value: measures
+}
+
+type Property {
+ 
+  bathroom_num: Float
+  bedroom_num: Float
+  property_contact_city: String
+  unit_uuid:String
+  destinationId:String
+  destinations : [Destination]
+  stayDateMeasures(startDate: String,endDate: String) : StayDateMeasures
+}
+
+input PropertyQuery {
+  bathroom_num: Float
+  bedroom_num: Float
+  unit_uuid: String
+}
+
+
+
+type measures {
+   yearly: Float
+   halfYearly: Float
+   qurterly: Float
+   monthly: Float
+}
+
+ 
+ type StayDateMeasures {
+  unit_uuid: String
+  supply: StayDateSupply
+}
+
+
+type StayDateSupply {
+  aggregate: StayDateMeasureSupplyAggregates
+}
+
+type StayDateMeasureSupplyAggregates {
+  available_night: Int
+  blocked_night: Int
+  reserved_night: Int
+  min_stay_blocked_night: Int
+  lodging_nightly_rate_usd: Float
+}
+
+
