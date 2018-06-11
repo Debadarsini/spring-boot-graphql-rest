@@ -15,8 +15,7 @@ Defined end api need to be exposed. Then define resolvers and tell how to join a
 Here is how schema needs to defined for join 
 
 type House {
- 
-  ownerName
+  ownerName: String
   <b>address : [Address]
 }
 
